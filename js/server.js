@@ -1,21 +1,27 @@
 let http = require('http');
 const url = require('url');
 const fs = require('fs');
-// create server function
+// create server
 http.createServer((_request, response) => {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end('Hello Node!\n');
+    let addr = request.url,
+        q = url.parse(addr, true),
+        filePath = '';
+    if (q.pathname.includes('documentation')) {
+        filePath = (__dirname + '/documentation.html');
+    } else {
+        filePath = 'index.html';
+    }
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            throw err;
+        }
+
+        response.writeHead(200, { 'Content-Type': 'text/html' });
+        response.write(data);
+        response.end();
+
+    });
+
 }).listen(8080);
-console.log('My first Node test server is running on Port 8080.');
-// url request function
-let addr = request.url;
-let q = url.parse(addr, true);
-//log q data parts
-console.log(q.host);
-console.log(q.pathname);
-console.log(q.search);
-// qData
-let qData = q.query;
-console.log(qData.month);
-// file system functions
-fs.readFile('log.txt')
+console.log('My test server is running on Port 8080.');
