@@ -1,0 +1,43 @@
+[
+  {
+    "Title": "Cloudy with a chance of meatballs",
+    "Genre": "animation/comedy"
+  },
+  {
+    "Title": "Grown ups",
+    "Genre":"comedy"
+  },
+  {
+    "Title": "The Proposal",
+    "Genre": "romantic comedy"
+  },
+  {
+    "Title": "Up",
+    "Genre": "animation/comedy"
+  },
+  {
+    "Title":"Gnomeo and Juliet",
+    "Genre": "animation/comdey"
+  },
+  {
+    "Title": "Mr. Right",
+    "Genre": "action/romance"
+  },
+  {
+    "Title": "The Mask",
+    "Genre": "comedy/fantasy"
+  },
+  {
+    "Title": "Despicable Me",
+    "Genre": "animation/comedy"
+  },
+  {
+    "Title": "Zombieland",
+    "Genre": "horror/comedy"
+  },
+  {
+    "Title": "The Lost City",
+    "Genre": "romance/adventure"
+  }
+
+]
