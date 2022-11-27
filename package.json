@@ -168,6 +168,7 @@
   },
   "homepage": "https://github.com/x-lamprocapnos-x/Movie-Selector#readme",
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "uuid": "^9.0.0"
   }
 }
