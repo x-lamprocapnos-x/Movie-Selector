@@ -1,113 +1,200 @@
 [
   {
     "Title": "Cloudy with a chance of meatbells",
-    "Genre": {
-      "Name": "Family/Comedy",
-      "Description": "Family film aims to appeal to a wide range of ages, Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment "
-    },
-    "Director": {
-      "Name": "Phil Lord",
-      "Bio": "Phil Lord was born July 12, 1975 in Coconut Grove, Miami, Florida. Lord Phil Lord is an American film producer, director, and writer."
-    }
+    "Genre": [
+      {
+        "Name": "Family",
+        "Description": "Family film aims to appeal to a wide range of ages"
+      },
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Phil Lord",
+        "Bio": "Phil Lord was born July 12, 1975 in Coconut Grove, Miami, Florida. Lord is an American film producer, director, and writer."
+      },
+      {
+        "Name": "Chris Miller",
+        "Bio": "Christopher Miller was born on September 23, 1975 in Everett, Washington. Miller is an American film producer, director, and writer."
+      }
+    ]
   },
   {
     "Title": "Grown ups",
-    "Genre": {
-      "Name": "Comedy",
-      "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment"
-    },
-    "Director": {
-      "Name": "Dennis Dugan",
-      "Bio": "Dennis Barton Dugan was born September 5, 1946 in Wheaton, Illinois.Dennis Barton Dugan is an American director, actor, writer, artist and comedian. Dugan is known for his partnership with comedic actor Adam Sandler "
-    }
+    "Genre": [
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment"
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Dennis Dugan",
+        "Bio": "Dennis Barton Dugan was born September 5, 1946 in Wheaton, Illinois. Dugan is an American director, actor, writer, artist and comedian. Dugan is known for his partnership with comedic actor Adam Sandler "
+      }
+    ]
   },
   {
     "Title": "The Proposal",
-    "Genre": {
-      "Name": "Romantic Comedy",
-      "Description": "Romance Film usually has a theme that explores an issue within love, Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
-    },
-    "Director": {
-      "Name": "Anne Fletcher",
-      "Bio": "Anne Fletcher was born May 1, 1966 in Detroit, Michigan. Fletcher is an American choreographer, film director, dancer and actress."
-    }
+    "Genre": [
+      {
+        "Name": "Romance",
+        "Description": "Romance Film usually has a theme that explores an issue within love."
+      },
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Anne Fletcher",
+        "Bio": "Anne Fletcher was born May 1, 1966 in Detroit, Michigan. Fletcher is an American choreographer, film director, dancer and actress."
+      }
+    ]
   },
   {
     "Title": "Up",
-    "Genre": {
-      "Name": "Family/Adventure",
-      "Description": "Family film aims to appeal to a wide range of ages, Adventure film is a genre that revolves around the conquests and explorations of a protagonist."
-    },
-    "Director": {
-      "Name": "Pete Docter",
-      "Bio": "Pete Hans Docter was born October 9, 1968 in Bloomington, Minnesota. Docter is an American animator, film director, screenwriter, producer, voice actor, and chief creative officer of Pixar."
-    }
+    "Genre": [
+      {
+        "Name": "Family/Adventure",
+        "Description": "Family film aims to appeal to a wide range of ages."
+      },
+      {
+        "Name": "Adventure",
+        "Description": "Adventure film is a genre that revolves around the conquests and explorations of a protagonist."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Pete Docter",
+        "Bio": "Pete Hans Docter was born October 9, 1968 in Bloomington, Minnesota. Docter is an American animator, film director, screenwriter, producer, voice actor, and chief creative officer of Pixar."
+      }
+    ]
   },
   {
     "Title": "Gnomeo and Juliet",
-    "Genre": {
-      "Name": "Family/Adventure",
-      "Description": "Family film aims to appeal to a wide range of ages, Adventure film is a genre that revolves around the conquests and explorations of a protagonist."
-    },
-    "Director": {
-      "Name": "Kelly Asbury",
-      "Bio": "Kelly Adam Asbury was born January 15, 1960 in Beaumont, Texas and passed away on June 26, 2020 in Encino, Los Angeles, California. Asbury was an American animated film director, writer, voice actor, and illustrator."
-    }
+    "Genre": [
+      {
+        "Name": "Family",
+        "Description": "Family film aims to appeal to a wide range of ages."
+      },
+      {
+        "Name": "Adventure",
+        "Description": "Adventure film is a genre that revolves around the conquests and explorations of a protagonist."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Kelly Asbury",
+        "Bio": "Kelly Adam Asbury was born January 15, 1960 in Beaumont, Texas and passed away on June 26, 2020 in Encino, Los Angeles, California. Asbury was an American animated film director, writer, voice actor, and illustrator."
+      },
+      {
+        "Name": "John Stevenson",
+        "Bio": "John Stevenson was born October 9, 1958 in London, England. Stevenson is a british filmmaker, puppeteer, Animator, art director, film director, motion capture performer, storyboard artist, and voice actor"
+      }
+    ]
   },
   {
     "Title": "Mr. Right",
-    "Genre": {
-      "Name": "Action/Romance",
-      "Description": "Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats, Romance Film usually has a theme that explores an issue within love"
-    },
-    "Director": {
-      "Name": "Paco Cabezas",
-      "Bio": "Paco Cabezas was born January 11, 1978, in Seville, Spain. Cabezas is a director and producer, known for Penny Dreadful (2014), The Umbrella Academy (2019) and Mr. Right (2015)."
-    }
+    "Genre": [
+      {
+        "Name": "Action",
+        "Description": "Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+      },
+      {
+        "Name": "Romance",
+        "Description": "Romance Film usually has a theme that explores an issue within love."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Paco Cabezas",
+        "Bio": "Paco Cabezas was born January 11, 1978, in Seville, Spain. Cabezas is a director and producer, known for Penny Dreadful (2014), The Umbrella Academy (2019) and Mr. Right (2015)."
+      }
+    ]
   },
   {
     "Title": "The Mask",
-    "Genre": {
-      "Name": "Comedy/Fantasy",
-      "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment, Fantasy is a genre of speculative fiction involving magical elements, typically set in a fictional universe and sometimes inspired by mythology and folklore"
-    },
-    "Director": {
-      "Name": "Chuck Russell",
-      "Bio": "Charles Russell was born May 9, 1958 in Park Ridge, Illinois. Russell is an American filmmaker and actor known for his work on several genre films. "
-    }
+    "Genre": [
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      },
+      {
+        "Name": "Fantasy",
+        "Description": "Fantasy is a genre of speculative fiction involving magical elements, typically set in a fictional universe and sometimes inspired by mythology and folklore."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Chuck Russell",
+        "Bio": "Charles Russell was born May 9, 1958 in Park Ridge, Illinois. Russell is an American filmmaker and actor known for his work on several genre films. "
+      }
+    ]
   },
   {
     "Title": "Despicable Me",
-    "Genre": {
-      "Name": "Family/Comedy",
-      "Description": "Family film aims to appeal to a wide range of ages, Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
-    },
-    "Director": {
-      "Name": "Pierre Coffin",
-      "Bio": "Pierre-Louis Padang Coffin was born March 16, 1967 in France. Coffin is a French animator, voice actor, director, producer, and writer best known for co-directing four films in the Despicable Me franchise and being the voice of the Minions."
-    }
+    "Genre": [
+      {
+        "Name": "Family",
+        "Description": "Family film aims to appeal to a wide range of ages."
+      },
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Pierre Coffin",
+        "Bio": "Pierre-Louis Padang Coffin was born March 16, 1967 in France. Coffin is a French animator, voice actor, director, producer, and writer best known for co-directing four films in the Despicable Me franchise and being the voice of the Minions."
+      },
+      {
+        "Name": "Chris Renaud",
+        "Bio": "Chris Renaud was born December , 1966 in Baltimore, Michigan. Renaud is an American film producer, director, illustrator, designer, animator, and voice actor."
+      }
+    ]
   },
   {
     "Title": "Zombieland",
-    "Genre": {
-      "Name": "Horror/Comedy",
-      "Description": "Horror film seeks to elicit fear or disgust in its audience for entertainment purposes, Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
-    },
-    "Director": {
-      "Name": "Ruben Fleischer",
-      "Bio": "Ruben Samuel Fleischer was born October 31, 1974 in Washington D.C. Fleischer is an American film director, film producer, television producer, music video director, and commercial director."
-    }
+    "Genre": [
+      {
+        "Name": "Horror",
+        "Description": "Horror film seeks to elicit fear or disgust in its audience for entertainment purposes."
+      },
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Ruben Fleischer",
+        "Bio": "Ruben Samuel Fleischer was born October 31, 1974 in Washington D.C. Fleischer is an American film director, film producer, television producer, music video director, and commercial director."
+      }
+    ]
   },
   {
     "Title": "The Heat",
-    "Genre": {
-      "Name": "Comedy/Action",
-      "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment, Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats"
-    },
-
-    "Director": {
-      "Name": "Paul Feig",
-      "Bio": "Paul Samuel Feig was born September 17, 1962 in Mount Clemens, Michigan. Feig s an American actor, film director, comedian and filmmaker."
-    }
+    "Genre": [
+      {
+        "Name": "Comedy",
+        "Description": "Comedies are light-hearted dramas, crafted to amuse, entertain, and provoke enjoyment."
+      },
+      {
+        "Name": "Action",
+        "Description": "Action film is a genre in which the protagonist is thrust into a series of events that typically involve violence and physical feats."
+      }
+    ],
+    "Director": [
+      {
+        "Name": "Paul Feig",
+        "Bio": "Paul Samuel Feig was born September 17, 1962 in Mount Clemens, Michigan. Feig s an American actor, film director, comedian and filmmaker."
+      }
+    ]
   }
 ]

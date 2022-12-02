@@ -8,7 +8,7 @@ app.use(morgan('common'));
 app.use(express.static('public'));
 
 app.get('/', (_req, res) => {
-    res.send('welcome to your movie selector!')
+    res.send('welcome to your movie selector');
 });
 
 app.get('/documentation', (req, res) => {
@@ -34,7 +34,13 @@ app.get('/movies/:title', (req, res) => {
 
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
-    const genre = movies.find(movies => movies.Genre.Name === genreName).Genre;
+    //const genre = movies.find(movies => movies.Genre.Name === genreName).Genre;
+    let genre;
+    for (let i = 0; i < movies.length; i++) {
+        let movie = movies[i];
+        genre = movie.Genre.find(item => item.Name === genreName);
+        if (genre) break;
+    }
 
     if (genre) {
         res.status(200).json(genre);
@@ -46,7 +52,12 @@ app.get('/movies/genre/:genreName', (req, res) => {
 
 app.get('/movies/director/:directorName', (req, res) => {
     const { directorName } = req.params;
-    const director = movies.find(movies => movies.Director.Name === directorName).Director;
+    let director;
+    for (let i = 0; i < movies.length; i++) {
+        let movie = movies[i];
+        director = movie.Director.find(item => item.Name === directorName);
+        if (director) break;
+    }
 
     if (director) {
         res.status(200).json(director);
