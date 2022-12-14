@@ -101,6 +101,7 @@
     "lodash.merge": "^4.6.2",
     "minimatch": "^3.1.2",
     "minimist": "^1.2.7",
+    "mongoose": "^6.8.0",
     "morgan": "^1.10.0",
     "ms": "^2.1.2",
     "natural-compare": "^1.4.0",
@@ -168,6 +169,6 @@
   },
   "homepage": "https://github.com/x-lamprocapnos-x/Movie-Selector#readme",
   "devDependencies": {
-    "nodemon": "^2.0.20" 
+    "nodemon": "^2.0.20"
   }
 }
