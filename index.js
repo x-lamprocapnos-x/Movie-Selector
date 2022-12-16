@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
+//app.use(bodyParser.urlencoded({ extended: true }));
+//let auth = require('./auth')(app);
+//const passport = require('passport');
+//require('./passport');
+
 const Movies = Models.Movie;
 const Users = Models.User;
 
