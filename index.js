@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
-//app.use(bodyParser.urlencoded({ extended: true }));
-//let auth = require('./auth')(app);
-//const passport = require('passport');
-//require('./passport');
+app.use(bodyParser.urlencoded({ extended: true }));
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
 
 const Movies = Models.Movie;
-const Users = Models.User;
+const User = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/db', { useNewUrlParser: true, useUnifiedTopology: true });
+const newLocal = 'mongodb://localhost:27017/db';
+mongoose.connect(newLocal, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const express = require('express'),
     morgan = require('morgan');
@@ -32,7 +33,14 @@ app.get('/documentation', (req, res) => {
 //read all movies
 app.get('/movies', (req, res) => 
 {   
-    Movies.find().then(movies => res.json(movies))
+    Movies.find().then(movies => {
+        res.json(movies)
+    })
+    .catch(error =>{
+        console.log(error);
+        res.status(500).send(`Error: ${error}`);
+    });
+        
 });
 //read movie by title
 app.get('/movies/:title', (req, res) => {
@@ -82,10 +90,16 @@ app.get('/movies/director/:directorName', (req, res) => {
 
 });
 
+app.get('users/username', (req, res) =>{
+    if (User) {
+        res.status(200).json(User);
+    } else {
+        res.status(404).send('user not found')
+    }
+});
+
 
 
 app.listen(8080, () => {
     console.log('listening');
-})
-
-app.get("/movies")
+});
