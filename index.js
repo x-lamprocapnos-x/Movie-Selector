@@ -31,16 +31,15 @@ app.get('/documentation', (req, res) => {
 
 //old function: const movies = require('./movies.json')
 //read all movies
-app.get('/movies', (req, res) => 
-{   
+app.get('/movies', (req, res) => {
     Movies.find().then(movies => {
         res.json(movies)
     })
-    .catch(error =>{
-        console.log(error);
-        res.status(500).send(`Error: ${error}`);
-    });
-        
+        .catch(error => {
+            console.log(error);
+            res.status(500).send(`Error: ${error}`);
+        });
+
 });
 //read movie by title
 app.get('/movies/:title', (req, res) => {
@@ -57,14 +56,7 @@ app.get('/movies/:title', (req, res) => {
 
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
-    //const genre = movies.find(movies => movies.Genre.Name === genreName).Genre;
-   // let genre;
-   // for (let i = 0; i < movies.length; i++) {
-     //   let movie = movies[i];
-        genre = Movies.Genre.find(item => item.Name === genreName);
-       // if (genre) break;
-    //}
-
+    genre = Movies.Genre.find(item => item.Name === genreName);
     if (genre) {
         res.status(200).json(genre);
     } else {
@@ -90,12 +82,27 @@ app.get('/movies/director/:directorName', (req, res) => {
 
 });
 
-app.get('users/username', (req, res) =>{
-    if (User) {
-        res.status(200).json(User);
-    } else {
-        res.status(404).send('user not found')
-    }
+// Get all users
+app.get('/users', (req, res) => {
+    User.find()
+        .then((users) => {
+            res.status(201).json(users);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + error);
+        });
+});
+
+app.get('users/username', (req, res) => {
+
+    User = User.find().then((User) => {
+        res.status(201).json(User)
+    }).catch(error => {
+        console.log(error);
+        res.status(500).send('Error: ' + error);
+    });
+
 });
 
 
