@@ -95,7 +95,8 @@ app.get('/users', (req, res) => {
 // get single user
 app.get('users/username', (req, res) => {
 
-    User = User.find().then((User) => {
+    User = User.findOne({Username: req.params.Username})
+    .then((User) => {
         res.status(201).json(User)
     }).catch(error => {
         console.log(error);
