@@ -24,12 +24,11 @@ app.use(express.static('public'));
 app.get('/', (_req, res) => {
     res.send('welcome to your movie selector');
 });
-
+// read documentation
 app.get('/documentation', (req, res) => {
     res.sendFile('public/documentation.html', { root: __dirname });
 });
 
-//old function: const movies = require('./movies.json')
 //read all movies
 app.get('/movies', (req, res) => {
     Movies.find().then(movies => {
@@ -53,7 +52,7 @@ app.get('/movies/:title', (req, res) => {
     }
 
 });
-
+//read movie genre by name
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
     genre = Movies.Genre.find(item => item.Name === genreName);
@@ -64,7 +63,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
     }
 
 });
-
+//read director by name
 app.get('/movies/director/:directorName', (req, res) => {
     const { directorName } = req.params;
     let director;
@@ -93,7 +92,7 @@ app.get('/users', (req, res) => {
             res.status(500).send('Error: ' + error);
         });
 });
-
+// get single user
 app.get('users/username', (req, res) => {
 
     User = User.find().then((User) => {
@@ -104,8 +103,6 @@ app.get('users/username', (req, res) => {
     });
 
 });
-
-
 
 app.listen(8080, () => {
     console.log('listening');
