@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
 
 let movieSchema = mongoose.Schema({
     Title: {type: String, required:true},
@@ -31,3 +30,7 @@ let Users = mongoose.model('Users', userSchema);
 
 module.exports.Movie = Movies;
 module.exports.User = Users;
+
+
+    
+

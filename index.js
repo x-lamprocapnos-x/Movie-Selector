@@ -1,24 +1,25 @@
 const mongoose = require('mongoose');
-const newLocal = 'mongodb://localhost:27017/db';
-mongoose.connect(newLocal, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set('strictQuery', true);
+mongoose.connect('mongodb://localhost:27017/db',{ useNewUrlParser: true, useUnifiedTopology: true })
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: true }));
-let auth = require('./auth')(app);
-const passport = require('passport');
-require('./passport');
-
-const express = require('express'),
-    morgan = require('morgan')
+const express = require('express');
 const app = express();
-app.use(express.static('public'));
-app.use(morgan('common'));
-
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+//const passport = require('passport');
+//require('./passport');
+//const cors = require('cors');
+//app.use(cors());
+//let auth = require('./auth')(app);
 const Models = require('./models.js');
 
 const Movies = Models.Movie;
 const Users = Models.User;
 
+app.use(express.static('public'));
+app.use(morgan('common'));
+app.use(bodyParser.urlencoded({ extended: true }));
+// 
 app.get('/', (req, res) => {
     res.send('welcome to your movie selector');
 });
@@ -178,6 +179,6 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
         });
 });
 
-app.listen(8081, () => {
-    console.log('listening');
+app.listen(8082, () => {
+    console.log('listening on port 8082');
 });
