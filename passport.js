@@ -20,7 +20,11 @@ passport.use(new LocalStragedy({
         }
         if (!user) {
             console.log('incorrect username');
-            return callback(null, false, { message: 'incorrect username or password' });
+            return callback(null, false, { message: 'incorrect username' });
+        }
+        if (!user.validatePassword(password)) {
+            console.log('incorrect password');
+            return callback(null, false, { messager: 'incorrect password'})
         }
         console.log('finished');
         return callback(null, user);

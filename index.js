@@ -141,6 +141,7 @@ app.delete('/users/:Username', (req, res) => {
 });
 // create new user
 app.post('/users', (req, res) => {
+    let hashedPassword = Users.hashPassword(req.body.Password)
     Users.findOne({ Username: req.params.Username })
         .then((Users) => {
             if (!Users) {
@@ -149,7 +150,7 @@ app.post('/users', (req, res) => {
                 Users
                     .create({
                         Username: req.body.Username,
-                        Password: req.body.Password,
+                        Password: hashedPassword,
                         Email: req.body.Email,
                         Birthday: req.body.Birthday
                     })
