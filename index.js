@@ -200,6 +200,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
         });
 });
 
-app.listen(8082, () => {
-    console.log('listening on port 8082');
+const port = process.env.PORT || 8082;
+app.listen(port, '0.0.0.0' ,() => {
+    console.log('listening on port' + port);
 });
