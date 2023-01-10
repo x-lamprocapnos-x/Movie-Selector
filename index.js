@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb://localhost:27017/db',{ useNewUrlParser: true, useUnifiedTopology: true })
-
+let connectionString = 'mongodb+srv://newUser:newUser@cluster0.mms86ka.mongodb.net/movies?retryWrites=true&w=majority';
+let localConnectionString='mongodb://localhost:27017/db'
+mongoose.connect(connectionString,{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(()=> console.log('connected'))
+.catch(e => console.error(e))
 const express = require('express');
 const app = express();
+const { check, validationResult } = require("express-validator");
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-//const passport = require('passport');
-//require('./passport');
-//const cors = require('cors');
-//app.use(cors());
-//let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
+const cors = require('cors');
+app.use(cors());
+app.use(express.json())
+let auth = require('./auth')(app);
 const Models = require('./models.js');
 
 const Movies = Models.Movie;
@@ -18,7 +23,7 @@ const Users = Models.User;
 
 app.use(express.static('public'));
 app.use(morgan('common'));
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 // 
 app.get('/', (req, res) => {
     res.send('welcome to your movie selector');
@@ -28,8 +33,8 @@ app.get('/documentation', (req, res) => {
     res.sendFile('public/documentation.html', { root: __dirname });
 });
 
-//read all movies 
-app.get('/movies', passport.authenticate('jwt', { session: false }),
+//read all movies passport.authenticate('jwt', { session: false }),
+app.get('/movies', 
 (req, res) => {
     Movies.find()
         .then(movies => {
@@ -147,23 +152,23 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
         })
 
 });
-// create new user
+// create new user passport.authenticate('jwt', { session: false }),
 app.post('/users',  
-  [
-    check('Username', 'Username is required').isLength({min:8}),
-    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-    check('Password', 'Password is required').not().isEmpty(),
-    check('Email', 'Email does not appear to be valid').isEmail()
-  ], passport.authenticate('jwt', { session: false }),
+ [
+   check('Username', 'Username is required').isLength({min:7}),
+   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+   check('Password', 'Password is required').not().isEmpty(),
+   check('Email', 'Email does not appear to be valid').isEmail()
+  ], 
   (req, res) => {
-    let errors = validationResults(req);
+    let errors = validationResult(req);
     if (!errors.isEmpty()){
         return res.status(422).json({ errors: errors.array() });
     }
     let hashedPassword = Users.hashPassword(req.body.Password)
-    Users.findOne({ Username: req.params.Username })
-        .then((Users) => {
-            if (!Users) {
+    Users.findOne({ Username: req.body.Username })
+        .then((User) => {
+            if (User) {
                 return res.status(400).send(req.body.Username + 'already Exists');
             } else {
                 Users
