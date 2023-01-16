@@ -24,7 +24,7 @@ passport.use(new LocalStragedy({
         }
         if (!user.validatePassword(password)) {
             console.log('incorrect password');
-            return callback(null, false, { messager: 'incorrect password'})
+            return callback(null, false, { message: 'incorrect password'})
         }
         console.log('finished');
         return callback(null, user);
