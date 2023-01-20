@@ -107,7 +107,7 @@ app.get('/users', passport.authenticate('jwt', { session: false }),
             res.status(500).send('Error: ' + err);
         });
 });
-// get single user 
+// get single user .
 app.get('/users/:username', passport.authenticate('jwt', { session: false }),
 (req, res) => {
     Users.findOne({ Username: req.params.username })
