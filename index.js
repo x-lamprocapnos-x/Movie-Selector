@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
-let connectionString = 'mongodb+srv://newUser:newUser@cluster0.mms86ka.mongodb.net/db?retryWrites=true&w=majority';
-let localConnectionString='mongodb://localhost:27017/db'
-mongoose.connect(connectionString,{ useNewUrlParser: true, useUnifiedTopology: true })
+const {CONNECTION_URI} = require ('./config.js');
+mongoose.connect(CONNECTION_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=> console.log('connected'))
 .catch(e => console.error(e))
 const express = require('express');
