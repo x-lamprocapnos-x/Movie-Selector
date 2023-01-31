@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 const {CONNECTION_URI} = require ('./config.js');
@@ -22,7 +23,7 @@ const Users = Models.User;
 
 app.use(express.static('public'));
 app.use(morgan('common'));
-//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // 
 app.get('/', (req, res) => {
     res.send('welcome to your movie selector');
