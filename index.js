@@ -1,27 +1,35 @@
 require('dotenv').config()
+//Object data modeling library
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 const {CONNECTION_URI} = require ('./config.js');
 mongoose.connect(CONNECTION_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=> console.log('connected'))
 .catch(e => console.error(e))
+//framework used
 const express = require('express');
 const app = express();
 const { check, validationResult } = require("express-validator");
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const passport = require('passport');
-require('./passport');
+//Cross-Origin Resource Sharing
 const cors = require('cors');
 app.use(cors());
-app.use(express.json())
-let auth = require('./auth')(app);
-const Models = require('./models.js');
+//Logger middleware
+const morgan = require('morgan');
+//Body parsing middleware
+const bodyParser = require('body-parser');
+//Authentication middleware
+const passport = require('passport');
+require('./passport');
 
+app.use(express.json())
+require('./auth')(app);
+//models
+const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
-
+//serves static files
 app.use(express.static('public'));
+//log common output
 app.use(morgan('common'));
 app.use(bodyParser.urlencoded({ extended: true }));
 // 
