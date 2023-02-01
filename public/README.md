@@ -1,8 +1,12 @@
 Movie-Selector
- - a small api containing movies
+ The purpose of this application is to show how a REST API works
 Key features
-- n/a
-- n/a
+- create a user profile
+- update a user profile
+- delete a user profile
+
 User interaction includes
-- n/a
-- n/a
+- find movies by name
+- find movies by genre
+- find actors
+- find directors and their bio
