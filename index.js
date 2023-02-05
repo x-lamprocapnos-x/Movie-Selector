@@ -195,7 +195,7 @@ app.post('/users',
                         res.status(201).json(user)
                     }).catch((error) => {
                         console.error(error);
-                        res.status(500).send('Error: ', err);
+                        res.status(500).send('Error: ', error);
                     })
 
             }
