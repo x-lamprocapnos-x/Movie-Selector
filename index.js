@@ -219,6 +219,6 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
 });
 
 const port = process.env.PORT || 8082;
-app.listen(port, '0.0.0.0' ,() => {
+app.listen(port, () => {
     console.log('listening on port' + port);
 });
