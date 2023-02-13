@@ -12,7 +12,18 @@ const app = express();
 const { check, validationResult } = require("express-validator");
 //Cross-Origin Resource Sharing
 const cors = require('cors');
-app.use(cors());
+let allowedOrigins = ['http://localhost:3000', 'test.com'];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+      let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
 //Logger middleware
 const morgan = require('morgan');
 //Body parsing middleware
@@ -21,7 +32,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 require('./passport');
 
-app.use(express.json())
+app.use(express.json())//app.use(bodyParser.urlencoded({ extended: true }));
 require('./auth')(app);
 //models
 const Models = require('./models.js');
@@ -31,7 +42,6 @@ const Users = Models.User;
 app.use(express.static('public'));
 //log common output
 app.use(morgan('common'));
-app.use(bodyParser.urlencoded({ extended: true }));
 // 
 app.get('/', (req, res) => {
     res.send('welcome to your movie selector');
