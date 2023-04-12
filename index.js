@@ -228,6 +228,22 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
             });
     });
 
+app.delete('/users/:Username/movies/:MovieID', passport.authenticate("jwt", { session: false}),
+    (req, res) => {
+        Users.findOneAndUpdate({ Username: req.params.Username }, {
+            $pull: { FavoriteMovies: req.params.MovieID }
+        },
+            { new: true },
+            (err, updatedUser) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send('Error: ' + err);
+                } else {
+                    res.json(updatedUser);
+                }
+            });
+    });
+
 const port = process.env.PORT || 8082;
 app.listen(port, () => {
     console.log('listening on port' + port);
