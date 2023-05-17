@@ -12,7 +12,7 @@ const app = express();
 const { check, validationResult } = require("express-validator");
 //Cross-Origin Resource Sharing
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:3000', 'http://localhost:1234'];//'https://movie-selector.onrender.com'
+let allowedOrigins = ['http://localhost:3000', 'http://localhost:1234','https://movie-selector-ads.netlify.app'];
 
 app.use(cors({
     origin: (origin, callback) => {
