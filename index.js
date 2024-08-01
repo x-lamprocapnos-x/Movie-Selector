@@ -12,7 +12,13 @@ const app = express();
 const { check, validationResult } = require("express-validator");
 //Cross-Origin Resource Sharing
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:3000', 'http://localhost:1234','https://movie-selector.onrender.com/movies', 'https://movie-selector-ads.netlify.app'];
+let allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:1234',
+    'https://movie-selector.onrender.com/movies',
+    'https://movie-selector-ads.netlify.app',
+    'http://localhost:4200'
+];
 
 app.use(cors({
     origin: (origin, callback) => {
@@ -228,7 +234,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
             });
     });
 
-app.delete('/users/:Username/movies/:MovieID', passport.authenticate("jwt", { session: false}),
+app.delete('/users/:Username/movies/:MovieID', passport.authenticate("jwt", { session: false }),
     (req, res) => {
         Users.findOneAndUpdate({ Username: req.params.Username }, {
             $pull: { FavoriteMovies: req.params.MovieID }
