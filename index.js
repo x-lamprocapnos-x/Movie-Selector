@@ -17,7 +17,8 @@ let allowedOrigins = [
     'http://localhost:1234',
     'https://movie-selector.onrender.com/movies',
     'https://movie-selector-ads.netlify.app',
-    'http://localhost:4200'
+    'http://localhost:4200',
+    'https://x-lamprocapnos-x.github.io/myFlix-Angular-client/'
 ];
 
 app.use(cors({
