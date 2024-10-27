@@ -36,7 +36,7 @@ let allowedOrigins = [
     'https://movie-selector.onrender.com/movies',
     'https://movie-selector-ads.netlify.app',
     'http://localhost:4200',
-    'https://x-lamprocapnos-x.github.io/'
+    'https://x-lamprocapnos-x.github.io'
 ];
 
 /**
