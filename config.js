@@ -11,8 +11,10 @@
  * @property {string} JWT_SECRET - The secret key for signing JWT tokens. Defaults to "your_jwt_secret" if not provided in environment variables.
  */
 
+require('dotenv').config();
+
 const config = {
     CONNECTION_URI: process.env.CONNECTION_URI || "mongodb://localhost:27017",
-    JWT_SECRET: process.env.JWT_SECRET || "your_jwt_secret"
+    JWT_SECRET: process.env.JWT_SECRET
 }
 module.exports = config
