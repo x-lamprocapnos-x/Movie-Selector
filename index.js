@@ -356,12 +356,11 @@ app.delete('/users/:Username/movies/:MovieID', passport.authenticate("jwt", { se
             });
     });
 
-/**
- * Starts the API server on the specified port.
- * @name Listen
- * @param {number} port - The port on which the server listens.
- */
-const port = process.env.PORT || 8082;
-app.listen(port, () => {
-    console.log('listening on port' + port);
-});
+if (require.main === module) {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
