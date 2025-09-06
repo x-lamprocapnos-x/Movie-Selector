@@ -9,7 +9,7 @@
  */
 
 const passport = require('passport'),
-    LocalStragedy = require('passport-local').Strategy,
+    LocalStrategy = require('passport-local').Strategy,
     Models = require('./models.js'),
     passportJWT = require('passport-jwt'),
     config = require("./config.js");
@@ -29,7 +29,7 @@ let Users = Models.User,
  * @param {string} password - The password provided by the user.
  * @param {function} callback - A callback function to return the authenticated user or error.
  */
-passport.use(new LocalStragedy({
+passport.use(new LocalStrategy({
     usernameField: 'Username',
     passwordField: 'Password'
 }, (username, password, callback) => {
@@ -61,8 +61,8 @@ passport.use(new LocalStragedy({
 
 passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-
-    secretOrKey: config.JWT_SECRET
+    secretOrKey: config.JWT_SECRET,
+    algorithms: ['HS256']
 }, (jwtPayload, callback) => {
     return Users.findById(jwtPayload._id)
         .then((user) => {
