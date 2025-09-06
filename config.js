@@ -13,8 +13,12 @@
 
 require('dotenv').config();
 
+if (!process.env.JWT_SECRET) {
+    console.warn("Warning: JWT_SECRET is not set in environment variables! This is critical for your app's security.");
+}
+
 const config = {
     CONNECTION_URI: process.env.CONNECTION_URI || "mongodb://localhost:27017",
-    JWT_SECRET: process.env.JWT_SECRET
+    JWT_SECRET: process.env.JWT_SECRET || "your_jwt_secret"
 }
 module.exports = config
