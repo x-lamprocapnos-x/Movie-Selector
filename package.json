@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
@@ -36,7 +35,6 @@
   },
   "homepage": "https://github.com/x-lamprocapnos-x/Movie-Selector#readme",
   "devDependencies": {
-    "nodemon": "^3.1.10",
     "depcheck": "^1.4.3",
     "eslint": "^8.26.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -45,6 +43,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-scope": "^7.1.1",
     "eslint-utils": "^3.0.0",
-    "eslint-visitor-keys": "^3.3.0"
+    "eslint-visitor-keys": "^3.3.0",
+    "nodemon": "^3.1.10"
   }
 }
