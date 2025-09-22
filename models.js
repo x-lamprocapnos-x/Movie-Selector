@@ -47,7 +47,7 @@ let movieSchema = mongoose.Schema({
  * User schema defining the structure of the user document.
  * 
  * @property {string} Username - The user's username (required).
- * @property {string} Passport - The user's password (required).
+ * @property {string} Password - The user's password (required).
  * @property {string} Email - The user's email (required).
  * @property {date} Birthday - The user's birth date.
  * @property {Array<ObjectId>} - An array of ObjectId references to the user's favorited movies.
