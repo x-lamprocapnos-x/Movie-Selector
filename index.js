@@ -25,13 +25,6 @@ const app = express();
 const Movies = Models.Movie;
 const Users = Models.User;
 
-app.use(express.json())
-require('./auth')(app);
-
-app.use(express.static('public'));
-app.use(morgan('common'));
-
-
 /**
  * Connects to the MongoDB database using Mongoose
  */
@@ -60,8 +53,14 @@ app.use(cors({
             return callback(new Error(message), false);
         }
         return callback(null, true);
-    }
+    },
+    credentials: true
 }));
+
+app.use(express.json()) // Parses incoming requests with JSON payloads
+app.use(express.static('public')); // Serves static files from the 'public' directory
+app.use(morgan('common')); // Logs HTTP requests to the console
+require('./auth')(app); // Import and invoke the auth.js module with the Express app
 
 /**
  * GET: Welcome route for the API.
