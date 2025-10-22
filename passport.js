@@ -34,23 +34,26 @@ passport.use(new LocalStrategy({
     passwordField: 'Password'
 }, async (username, password, callback) => {
     try {
-        console.log(username + ' ' + password);
+        console.log('Authenticating:', username);
 
         const user = await Users.findOne({ Username: username });
 
         if (!user) {
             console.log('Incorrect username');
+            return callback(null, false, {message: 'Incorrect username' });
         }
 
-        if (!user.validatePassword(password)) {
+        const isValid = await user.validatePassword(password);
+        if (!isValid) {
             console.log('Incorrect password');
             return callback(null, false, { message: 'Incorrect password' });
         }
 
-        console.log('Finished');
+        console.log('Authentication successful');
         return callback(null, user);
+    
     } catch (error) {
-        console.log(error);
+        console.log('Error during authenticaition:', error);
         return callback(error);
     }
 
@@ -67,13 +70,14 @@ passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: config.JWT_SECRET,
     algorithms: ['HS256']
-}, (jwtPayload, callback) => {
-    return Users.findById(jwtPayload._id)
-        .then((user) => {
-            return callback(null, user);
-        })
-        .catch((error) => {
-            return callback(error)
-        });
+}, async (jwtPayload, callback) => {
+    try{
+        const user = await Users.findById(jwtPayload._id);
+        if (!user)return callback(null, user);
+        return callback(null, user);
+    } catch (error) {
+        console.log('Error during JWT authentication:', error);
+        return callback(error);
+    }
 
 }));

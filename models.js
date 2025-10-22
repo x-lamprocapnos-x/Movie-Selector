@@ -78,8 +78,8 @@ userSchema.statics.hashPassword = (password) => {
  * @param {string} password - The password provided by the user during login. 
  * @returns {boolean} - Returns true if the password is correct, otherwise false.
  */
-userSchema.methods.validatePassword = function (password) {
-    return bcrypt.compareSync(password, this.Password);
+userSchema.methods.validatePassword = async function(password) {
+    return await bcrypt.compare(password, this.Password);
 };
 
 
